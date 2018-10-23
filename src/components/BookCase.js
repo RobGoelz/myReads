@@ -14,15 +14,15 @@ class BookCase extends Component {
   // function to update the state of the individual shelves to contain appropriate books
   // for each shelf
     const newCurrentShelf = {
-      name: "Currently Reading",
+      name: 'Currently Reading',
       books: this.props.books.filter(book => book.shelf === 'currentlyReading')
     };
     const newWantShelf = {
-      name: "Want to Read",
+      name: 'Want to Read',
       books: this.props.books.filter(book => book.shelf === 'wantToRead')
     };
     const newReadShelf = {
-      name: "Read",
+      name: 'Read',
       books: this.props.books.filter(book => book.shelf === 'read')
     };
     
