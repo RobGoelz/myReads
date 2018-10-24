@@ -44,7 +44,11 @@ class BookCase extends Component {
          <div className='list-books-content'>
            <div>
            {/* check for null shelves and then map to BookShelf */}        
-             {shelves && shelves.map((shelf) => (<BookShelf key={shelf.name} shelf={shelf}/>))}
+             {shelves && shelves.map((shelf) => (<BookShelf 
+               key={shelf.name} 
+               shelf={shelf}
+               onChangeShelf={this.props.onChangeShelf}
+             />))}
            </div>
          </div>
          <div className='open-search'>
