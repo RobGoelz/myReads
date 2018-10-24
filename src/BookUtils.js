@@ -1,3 +1,8 @@
+// file is courtesy of Doug Brown, but re-built by me by following his tutorial here:
+// https://www.youtube.com/watch?v=OcL7-7cRpkQ&feature=youtu.be
+// final version of Doug's is here: 
+// https://github.com/thefinitemonkey/udacity-myreads/blob/master/src/BookUtils.js
+
 export const sortAllBooks = (list) => {
   const newList = list.sort((a,b) => {
     const titleA = a.title.toUpperCase();
