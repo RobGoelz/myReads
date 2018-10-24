@@ -9,7 +9,7 @@ class Book extends Component {
 
   render () {
     // Joins an array of authors into a single string
-    const authors = this.props.book.authors && this.props.book.authors.join(' | ');
+    const authors = this.props.book.authors && this.props.book.authors.join(' & ');
 
     // create thumbnail url from book props
     let url = (this.props.book.imageLinks && `url(${this.props.book.imageLinks.thumbnail})`);
@@ -26,7 +26,7 @@ class Book extends Component {
                   backgroundImage: url
                 }}></div>
               </button>
-              <Changer />
+              <Changer book={this.props.book} onChangeShelf={this.props.onChangeShelf}/>
           </div>
           <div className='book-title'>{this.props.book.title}</div>
           <div className='book-authors'>{authors}</div>
