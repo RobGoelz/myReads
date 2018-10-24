@@ -36,8 +36,36 @@ class BooksApp extends React.Component {
     });
   }
 
+  changeShelf = (book,shelf) => {
+    // Makes a call to the API to update the shelf with the selected book
+    // to the newly selected shelf
+    BooksAPI
+      .update(book.shelf)
+      .then(response => {
+        // Update the state of the book, start with a copy of the list of books
+        let newList = this.state.books.slice(0);
+        // Looks for the book in the list, in case it's not there yet
+        const books = newList.filter(listBook => listBook.id === book.id);
+        
+        if (books.length) {
+          // Update the shelf if book alredy present
+          books[0].shelf = shelf;
+        } else {
+          // Add the selected book to the shelf and sort the list of books
+          // using the BookUtils sort function from Doug Brown
+          newList.push(book);
+          newList = BookUtils.sortAllBooks(newList);
+        }
+        // Update the state with the newList (selected book included)
+        this.setState({books: newList});
+      })
+  }
+
   render() {
-    return (<BookCase books={this.state.books} onRefreshAllBooks={this.refreshAllBooks}/>)
+    return (<BookCase 
+      books={this.state.books} 
+      onRefreshAllBooks={this.refreshAllBooks}
+      onChangeShelf={this.changeShelf}/>)
   }
 }
 
