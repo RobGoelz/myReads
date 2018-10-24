@@ -4,7 +4,7 @@ import Changer from './Changer';
 
 class Book extends Component {
   state = {
-    shelfSelectio: this.props.book.shelf || 'none'
+    shelfSelection: this.props.book.shelf || 'none'
   }
 
   render () {
